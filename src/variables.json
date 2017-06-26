@@ -1,0 +1,11 @@
+{
+  "A": {
+    "Name": "A",
+    "Val": "myvalA"
+  },  "B": {
+    "Name": "B",
+    "Val": "myvalB"
+  },  "C": {
+    "Name": "C",
+    "Val": "myvalB"
+  }}
