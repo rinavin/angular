@@ -15,11 +15,19 @@ var myExtObject = (function (cb) {
     },
     startMagic: function (cb) {
       // alert('function 4 called');
-      func = cb;
-      magic1.start(cb);
+     // func = cb;
+      magic1.start();
     },
     buttonClick: function (idx) {
       magic1.insertEvent(idx);
+    },
+    registerGetValueCallback: function(cb)
+    {
+      magic1.registerGetValueCallback(cb);
+    },
+    registerRefreshUI: function(cb)
+    {
+      magic1.registerRefreshUI(cb);
     }
   }
 

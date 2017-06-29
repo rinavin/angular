@@ -36,8 +36,11 @@ export class AppComponent implements OnInit {
   initializeMagic() {
 
     var self = this;
-   
-    myExtObject.startMagic(data => {
+    myExtObject.registerGetValueCallback(name=>
+    {
+      return  (<FormControl>this.user.controls[name]).value;
+    });
+    myExtObject.registerRefreshUI(data => {
       var obj = JSON.parse(data);
       //alert(data);
      // self.id = obj[1].Value;
@@ -49,11 +52,11 @@ export class AppComponent implements OnInit {
       self.ref.detectChanges();
     }
     );
+    myExtObject.startMagic();
   }
 
   buttonClick(index: number) {
-   (<FormControl>this.user.controls['name'])
-    .setValue('John', { onlySelf: true });
+  
     myExtObject.buttonClick(index);
   }
 
