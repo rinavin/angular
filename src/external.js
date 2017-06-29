@@ -18,8 +18,8 @@ var myExtObject = (function (cb) {
      // func = cb;
       magic1.start();
     },
-    buttonClick: function (idx) {
-      magic1.insertEvent(idx);
+    insertEvent: function (eventName,  controlIdx, lineidx) {
+      magic1.insertEvent(eventName,  controlIdx, lineidx);
     },
     registerGetValueCallback: function(cb)
     {

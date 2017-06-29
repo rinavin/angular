@@ -57,7 +57,11 @@ export class AppComponent implements OnInit {
 
   buttonClick(index: number) {
   
-    myExtObject.buttonClick(index);
+   myExtObject.insertEvent("Click", index, 0);
+  }
+
+  focusFunction(index: number) {
+     myExtObject.insertEvent("Focus", index, 0);
   }
 
 
