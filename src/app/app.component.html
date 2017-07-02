@@ -29,6 +29,16 @@
 </div>
 <br>
 <br>-->
+<ul class="heroes">
+  <li *ngFor="let o of list" >
+    <span class="hero-element">
+      <span class="badge" >{{o.controls[0].Value}}</span>
+      <span class="badge">{{o.controls[1].Value}}</span>  
+    </span>
+    
+  </li>
+</ul>
+
 <div>
   <div style="display: in-line">
     <button class="btn btn-default" (click)="buttonClick(4)">Next </button>
