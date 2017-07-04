@@ -33,6 +33,11 @@ var myExtObject = (function (cb) {
     registerRefreshTableUI: function(cb)
     {
       magic1.registerRefreshTableUI(cb);
+    },
+
+    registerShowMessageBox: function(cb)
+    {
+      magic1.registerShowMessageBox(cb);
     }
   }
 

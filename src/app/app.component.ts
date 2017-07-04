@@ -40,6 +40,9 @@ export class AppComponent implements OnInit {
     myExtObject.registerGetValueCallback(name => {
       return (<FormControl>this.user.controls[name]).value;
     });
+    myExtObject.registerShowMessageBox(msg => {
+      alert(msg);
+    });
     myExtObject.registerRefreshUI(data => {
       var obj = JSON.parse(data);
       //alert(data);
