@@ -16,7 +16,7 @@
   background-color: #EEE;
   margin: .5em;
   padding: .5em;
-  height: 1.6em;
+  height: 2em;
   border-radius: 4px;
 }
 .heroes li:hover {
@@ -52,7 +52,7 @@ button {
   font-family: Arial;
   background-color: #eee;
   border: none;
-  padding: 5px 10px;
+  padding: 5px 5px;
   border-radius: 4px;
   cursor: pointer;
   cursor: hand;
@@ -66,4 +66,6 @@ button.delete-button{
   background-color: gray !important;
   background-color: rgb(216,59,1) !important;
   color:white;
+  top: -4px;
+  height: 1.4em;
 }

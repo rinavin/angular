@@ -90,9 +90,9 @@ export class AppComponent extends BaseMagicComponent implements OnInit {
     myExtObject.startMagic();
   }
 
-  buttonClick(index: number) {
-
-    myExtObject.insertEvent("Click", index, 0);
+  buttonClick(index: number, line: number ) {
+ 
+    myExtObject.insertEvent("Click", index, line);
   }
 
   focusFunction(index: number) {

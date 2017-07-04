@@ -36,7 +36,7 @@
       <span class="badge">{{o.controls[1].Value}}</span>  
        <span class="badge">{{o.Line}}</span>  
 
-      <button class="btn btn-default" (click)="buttonClick(4)">Show </button>
+      <button class="delete-button" (click)="buttonClick(6, o.Line)">Show </button>
     </span>
     
   </li>
@@ -44,8 +44,8 @@
 
 <div>
   <div style="display: in-line">
-    <button class="btn btn-default" (click)="buttonClick(4)">Next </button>
-    <button class="btn btn-default" (click)="buttonClick(5)">Previous </button>
+    <button class="btn btn-default" (click)="buttonClick(4, 0)">Next </button>
+    <button class="btn btn-default" (click)="buttonClick(5, 0)">Previous </button>
   </div>
 
   <br>
