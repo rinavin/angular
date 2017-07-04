@@ -1,45 +1,24 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import {FormsModule,ReactiveFormsModule} from '@angular/forms';
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 declare var myExtObject: any;
 
+export abstract class BaseMagicComponent implements OnInit {
 
 
-export class BaseMagicComponent implements OnInit {
-
-
-
-  constructor(private ref: ChangeDetectorRef) { }
+constructor(protected ref: ChangeDetectorRef) { }
 
   ngOnInit() {
-    
-    
-    //this.initializeMagic();
+    this.initializeMagic();
   }
+
 
   initializeMagic() {
-
-    var self = this;
-   
-    // myExtObject.startMagic(data => {
-    //   var obj = JSON.parse(data);
-    //   //alert(data);
-    //  // self.id = obj[1].Value;
-    //  // self.name = obj[3].Value;
-    // //    (<FormControl>this.user.controls['id'])
-    // // .setValue(obj[1].Value, { onlySelf: true });
-    // //  (<FormControl>this.user.controls['name'])
-    // // .setValue(obj[3].Value, { onlySelf: true });
-    //   self.ref.detectChanges();
-    // }
-    // );
+    myExtObject.registerGetValueCallback(this.GetValueCallback());
   }
 
-  buttonClick(index: number) {
-   
-     myExtObject.buttonClick(index);
-  }
+  abstract GetValueCallback(): any;
+
+
 }

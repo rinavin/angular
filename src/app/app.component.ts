@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { BaseMagicComponent } from './app.baseMagicComponent';
 
 
 declare var myExtObject: any;
@@ -13,15 +13,20 @@ declare var myExtObject: any;
 })
 
 
-export class AppComponent implements OnInit {
+export class AppComponent extends BaseMagicComponent implements OnInit {
 
   id: string;
   name: string;
   user: FormGroup;
   Myuser: User;
-   list: any;
+  list: any;
+  cb = name => {
+    return (<FormControl>this.user.controls[name]).value;
+  }
 
-  constructor(private ref: ChangeDetectorRef) { }
+  constructor(ref: ChangeDetectorRef) {
+    super(ref);
+  }
 
   ngOnInit() {
 
@@ -34,12 +39,22 @@ export class AppComponent implements OnInit {
     this.initializeMagic();
   }
 
+  GetValueCallback(): any {
+
+    return (
+      name => {
+        var self = this;
+        return (<FormControl>this.user.controls[name]).value;
+      });
+  }
+
   initializeMagic() {
 
     var self = this;
-    myExtObject.registerGetValueCallback(name => {
-      return (<FormControl>this.user.controls[name]).value;
-    });
+    myExtObject.registerGetValueCallback(this.GetValueCallback());
+    // name => {
+    //   return (<FormControl>this.user.controls[name]).value;
+    // });
     myExtObject.registerRefreshUI(data => {
       var obj = JSON.parse(data);
       //alert(data);
@@ -53,9 +68,9 @@ export class AppComponent implements OnInit {
     }
     );
     myExtObject.registerRefreshTableUI(data => {
-       this.list = JSON.parse(data);
-       self.ref.detectChanges();
-     // alert(this.list);
+      this.list = JSON.parse(data);
+      self.ref.detectChanges();
+      // alert(this.list);
       // self.id = obj[1].Value;
       // self.name = obj[3].Value;
       // (<FormControl>this.user.controls['id'])
