@@ -1,7 +1,7 @@
 import {Component, OnInit, ChangeDetectorRef, Input, Injectable} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {TaskMagicService} from "../services/task.magics.ervice";
+import {TaskMagicService} from "../services/task.magics.service";
 import {MagicEngine} from "../services/magic.engine";
 
 @Component({

@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Input, Output,OnInit } from '@angular/core';
-import {TaskMagicService} from "../services/task.magics.ervice";
+import {TaskMagicService} from "../services/task.magics.service";
 import {FormControlName} from "@angular/forms";
 
 @Directive({
