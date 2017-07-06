@@ -11,7 +11,7 @@ import {FormGroup} from "@angular/forms";
             <span>Id:</span>
             <input
                type="text"
-               magic="1"
+               magic="id"
                formControlName="id"
                >
          </label>
@@ -20,12 +20,12 @@ import {FormGroup} from "@angular/forms";
             <span>Name:</span>
             <input
                type="text"
-               magic="3"
+               magic="name"
                formControlName="name"
                >
          </label>
-         <button magic="4" >Next</button>
-         <button magic="5" >Prev</button>
+         <button magic="nextb" >Next</button>
+         <button magic="prevb" >Prev</button>
       </form>
    `
 })
