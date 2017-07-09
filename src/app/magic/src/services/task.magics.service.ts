@@ -26,6 +26,11 @@ export class TaskMagicService {
       this.magic.startMagic();
    }
 
+    getTaskId(parentId, subformName) : string{
+        return this.magic.getTaskId(parentId, subformName);
+    }
+
+
    insertEvent(eventName:string, controlIdx:string, lineidx:number){
       this.magic.insertEvent(eventName, controlIdx, lineidx);
    }

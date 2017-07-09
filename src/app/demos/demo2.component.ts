@@ -32,7 +32,7 @@ import {FormGroup} from "@angular/forms";
    `
 })
 export class  Demo2Component extends BaseTaskMagicComponent{
-   subform1Name: string = "subform1Name";
+   subform1Name: string = "mysubform1";
    get user(): FormGroup{
       return this.record;
    }

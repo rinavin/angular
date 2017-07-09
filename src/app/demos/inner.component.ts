@@ -5,7 +5,7 @@
  * Created by rinav on 06/07/2017.
  */
 import {Component, Input, OnInit} from "@angular/core";
-//import {BaseTaskMagicComponent} from "../magic/src/ui/app.baseMagicComponent";
+import {BaseTaskMagicComponent} from "../magic/src/ui/app.baseMagicComponent";
 import {FormGroup} from "@angular/forms";
 
 
@@ -35,17 +35,17 @@ import {FormGroup} from "@angular/forms";
       </form>
    `
 })
-export class  InnerComponent  implements OnInit{
-   ngOnInit(): void {
-     // alert(this.subformName);
-     // alert(this.parentId);
-   }
+export class  InnerComponent  extends BaseTaskMagicComponent{
+  //  ngOnInit(): void {
+  //    // alert(this.subformName);
+  //    // alert(this.parentId);
+  //  }
 
    @Input() subformName: string;
    @Input() parentId: string;
 //extends BaseTaskMagicComponent{
 
-   // get user(): FormGroup{
-   //    return this.record;
-   // }
+    get user(): FormGroup{
+       return this.record;
+    }
 }

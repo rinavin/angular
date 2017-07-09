@@ -1,7 +1,8 @@
 import {Component, OnInit, ChangeDetectorRef} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {BaseTaskMagicComponent} from './magic/src/ui/app.baseMagicComponent';
+import {MagicEngine} from "./magic/src/services/magic.engine";
+//import {BaseTaskMagicComponent} from './magic/src/ui/app.baseMagicComponent';
 
 
 declare var myExtObject: any;
@@ -9,7 +10,7 @@ declare var myExtObject: any;
    selector: 'app-root',
    template: `
 
-      <demo1></demo1>
+      <demo2></demo2>
       <!--<div>-->
       <!--<form novalidate [formGroup]="user">-->
       <!--<label>-->
@@ -63,33 +64,35 @@ declare var myExtObject: any;
       <!--</div>-->
       <!--</div>-->
    `})
-export class AppComponent extends BaseTaskMagicComponent implements OnInit {
-
-   id: string;
-   name: string;
-   user: FormGroup;
-
-   // list: any;
-   // cb = name => {
-   //    return (<FormControl>this.user.controls[name]).value;
-   //
-
-
-
-   ngOnInit() {
-      this.user = new FormGroup({
-         name: new FormControl(''),
-         id: new FormControl(''),
-
-
-      });
+export class AppComponent {//extends BaseTaskMagicComponent implements OnInit {
+constructor(protected magic: MagicEngine) {
+     magic.startMagic();
    }
+//    id: string;
+//    name: string;
+//    user: FormGroup;
 
-   GetValueCallback(): any {
-      return name => {
-         return (this.user.controls[name] as FormControl).value;
-      };
-   }
+//    // list: any;
+//    // cb = name => {
+//    //    return (<FormControl>this.user.controls[name]).value;
+//    //
+
+
+
+//    ngOnInit() {
+//       this.user = new FormGroup({
+//          name: new FormControl(''),
+//          id: new FormControl(''),
+
+
+//       });
+//    }
+
+//    GetValueCallback(): any {
+//       return name => {
+//          return (this.user.controls[name] as FormControl).value;
+//       };
+//    }
 
    initializeMagic() {
 

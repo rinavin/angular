@@ -9,6 +9,8 @@ import {MagicEngine} from "../services/magic.engine";
    providers: [TaskMagicService]
 })
 export abstract class BaseTaskMagicComponent implements OnInit {
+   @Input() subformName: string;
+   @Input() parentId: string;
    get controlProperties(): any {
       return this._controlProperties;
    }
@@ -17,7 +19,7 @@ export abstract class BaseTaskMagicComponent implements OnInit {
       this._controlProperties = value;
    }
 
-   subformName: string;
+ 
    private _controlProperties : any;
    //persons: { [id: string]: string; };
    protected props: { [id: string]: { [id: string]: string; } };
@@ -30,7 +32,7 @@ export abstract class BaseTaskMagicComponent implements OnInit {
    get record(){ return this.task.rows[0]; }
 
    //items: FormGroup;
-   taskId: number = 999;
+   taskId: string;
 
    constructor(
       protected ref: ChangeDetectorRef,
@@ -43,6 +45,10 @@ export abstract class BaseTaskMagicComponent implements OnInit {
 
    ngOnInit() {
 
+       this.taskId = this.task.getTaskId(this.parentId, this.subformName) ;
+       alert(this.taskId);
+       
+    
       this.task.registerGetValueCallback((controlKey:string) => {
          console.log('registerGetValueCallback', controlKey);
          return this.record.get(controlKey).value;
@@ -81,7 +87,7 @@ export abstract class BaseTaskMagicComponent implements OnInit {
       //    }
       // );
 
-      this.task.startMagic();
+     // this.task.startMagic();
 
 
    }

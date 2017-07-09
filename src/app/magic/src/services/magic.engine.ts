@@ -19,6 +19,11 @@ export class MagicEngine{
       this.magic.start();
    }
 
+   getTaskId(parentId, subformName):string
+   {
+       return  this.magic.getTaskId(parentId, subformName);
+   }
+
    insertEvent(eventName, controlIdx, lineidx) {
       console.log(eventName,controlIdx, lineidx);
       this.magic.insertEvent(eventName, controlIdx, lineidx);
