@@ -68,13 +68,11 @@ export class AppComponent extends BaseTaskMagicComponent implements OnInit {
    id: string;
    name: string;
    user: FormGroup;
-   Myuser: User;
-   list: any;
-   cb = name => {
-      return (<FormControl>this.user.controls[name]).value;
-   }
 
-
+   // list: any;
+   // cb = name => {
+   //    return (<FormControl>this.user.controls[name]).value;
+   //
 
 
 
@@ -135,14 +133,14 @@ export class AppComponent extends BaseTaskMagicComponent implements OnInit {
       // myExtObject.startMagic();
    }
 
-   buttonClick(index: number, line: number) {
-
-      myExtObject.insertEvent("Click", index, line);
-   }
-
-   focusFunction(index: number) {
-      myExtObject.insertEvent("Focus", index, 0);
-   }
+   // buttonClick(index: number, line: number) {
+   //
+   //    myExtObject.insertEvent("Click", index, line);
+   // }
+   //
+   // focusFunction(index: number) {
+   //    myExtObject.insertEvent("Focus", index, 0);
+   // }
 
 
 }

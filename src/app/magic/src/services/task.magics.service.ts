@@ -35,12 +35,6 @@ export class TaskMagicService {
    }
 
    registerRefreshUI(cb) {
-      // let extCb = ()=>{
-      //    /////
-      //    ////
-      //    ///create formGroups
-      //    cb();
-      // }
       this.magic.registerRefreshUI(cb);
    }
 

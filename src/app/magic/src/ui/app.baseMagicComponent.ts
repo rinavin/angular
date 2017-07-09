@@ -9,8 +9,18 @@ import {MagicEngine} from "../services/magic.engine";
    providers: [TaskMagicService]
 })
 export abstract class BaseTaskMagicComponent implements OnInit {
+   get controlProperties(): any {
+      return this._controlProperties;
+   }
 
-   controlId: number;
+   set controlProperties(value: any) {
+      this._controlProperties = value;
+   }
+
+   subformName: string;
+   private _controlProperties : any;
+   //persons: { [id: string]: string; };
+   protected props: { [id: string]: { [id: string]: string; } };
 
    /*get rowId(){
     return this.task.rowId;
@@ -20,7 +30,7 @@ export abstract class BaseTaskMagicComponent implements OnInit {
    get record(){ return this.task.rows[0]; }
 
    //items: FormGroup;
-   taskId: number;
+   taskId: number = 999;
 
    constructor(
       protected ref: ChangeDetectorRef,
@@ -44,8 +54,17 @@ export abstract class BaseTaskMagicComponent implements OnInit {
       this.task.registerRefreshUI(data => {
 
             var obj = JSON.parse(data);
-            console.dir(obj);
-            this.record.patchValue(obj);
+            console.dir(obj.ControlsValues);
+            console.dir("Properties");
+            console.dir(obj.ControlsProperties);
+
+            this.props = obj.ControlsProperties;
+            console.dir(this.props['idlabel']);
+            console.dir(this.props['idlabel']['19']);
+
+            this.record.patchValue(obj.ControlsValues);
+            this.ref.detectChanges();
+
          }
       );
       // this.task.registerRefreshTableUI(data => {

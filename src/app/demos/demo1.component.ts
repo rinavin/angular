@@ -1,21 +1,22 @@
-import {Component} from "@angular/core";
-import {BaseTaskMagicComponent} from "../magic/src/ui/app.baseMagicComponent";
-import {FormGroup} from "@angular/forms";
+import { Component } from "@angular/core";
+import { BaseTaskMagicComponent } from "../magic/src/ui/app.baseMagicComponent";
+import { FormGroup } from "@angular/forms";
+//import { PropType } from "../magic/src/ui/propType";
 
 
 @Component({
-   selector: 'demo1',
-   template: `
+      selector: 'demo1',
+      template: `
       <form novalidate [formGroup]="user">
          <label>
-            <span>Id:</span>
+            <span>{{GetProperty('idlabel', 19)}}</span>
             <input
                type="text"
                magic="id"
                formControlName="id"
                >
          </label>
-         <br>
+         <br>  
          <label>
             <span>Name:</span>
             <input
@@ -29,10 +30,26 @@ import {FormGroup} from "@angular/forms";
       </form>
    `
 })
-export class  Demo1Component extends BaseTaskMagicComponent{
+export class Demo1Component extends BaseTaskMagicComponent {
 
-   get user(): FormGroup{
-      return this.record;
-   }
+
+      get user(): FormGroup {
+            return this.record;
+      }
+
+      GetProperty(controlId: string, propertyType: number): string {
+            
+          //TODO : use property enum
+            //console.log("Value = " + this.props[controlId][propertyType]);
+            return this.props['idlabel'][propertyType];
+      }
+
+
+
+
 }
+export enum PropType {
+   Text = 19,
+}
+
 

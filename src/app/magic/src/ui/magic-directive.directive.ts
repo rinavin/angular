@@ -1,6 +1,6 @@
 import { Directive, ElementRef, Input, Output,OnInit } from '@angular/core';
 import {TaskMagicService} from "../services/task.magics.service";
-import {FormControlName} from "@angular/forms";
+import {FormControl, FormControlName} from "@angular/forms";
 
 @Directive({
    selector: '[magic]'
@@ -36,6 +36,9 @@ export class MagicDirectiveDirective implements OnInit{
          console.log('click');
          this.task.insertEvent('click', this.id, this.rowId);
       });
+      //if (htmlElement instanceof  HTMLInputElement  ){
+      //   (<HTMLInputElement >htmlElement).property
+
 
 
 

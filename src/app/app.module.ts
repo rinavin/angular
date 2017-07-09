@@ -7,12 +7,16 @@ import {MagicDirectiveDirective} from './magic/src/ui/magic-directive.directive'
 import {MagicModule} from "./magic/magic.core.module";
 import {AppComponent} from './app.component';
 import {Demo1Component} from "./demos/demo1.component";
+import {InnerComponent} from "./demos/inner.component";
+import {Demo2Component} from "./demos/demo2.component";
 
 @NgModule({
    declarations: [
       AppComponent,
       Demo1Component,
-      MagicDirectiveDirective
+      Demo2Component,
+      MagicDirectiveDirective,
+      InnerComponent
    ],
    imports: [
       BrowserModule,
@@ -32,4 +36,8 @@ import {Demo1Component} from "./demos/demo1.component";
    bootstrap: [AppComponent]
 })
 export class AppModule {
+   constructor()
+   {
+
+   }
 }
