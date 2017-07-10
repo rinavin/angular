@@ -18,7 +18,7 @@ export class MagicModule{
          ngModule: MagicModule,
          providers: [
             MagicEngine,
-            TaskMagicService
+            //TaskMagicService
          ]
       }
    }

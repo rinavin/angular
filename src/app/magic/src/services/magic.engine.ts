@@ -24,26 +24,26 @@ export class MagicEngine{
        return  this.magic.getTaskId(parentId, subformName);
    }
 
-   insertEvent(eventName, controlIdx, lineidx) {
+   insertEvent(taskId, eventName, controlIdx, lineidx) {
       console.log(eventName,controlIdx, lineidx);
-      this.magic.insertEvent(eventName, controlIdx, lineidx);
+      this.magic.insertEvent(taskId, eventName, controlIdx, lineidx);
 
    }
 
-   registerGetValueCallback(cb) {
-      this.magic.registerGetValueCallback(cb);
+   registerGetValueCallback(taskId, cb) {
+      this.magic.registerGetValueCallback(taskId, cb);
    }
 
-   registerRefreshUI(cb) {
-      this.magic.registerRefreshUI(cb);
+   registerRefreshUI(taskId, cb) {
+      this.magic.registerRefreshUI(taskId, cb);
    }
 
    registerRefreshTableUI(cb) {
       this.magic.registerRefreshTableUI(cb);
    }
 
-   registerShowMessageBox(cb) {
-      this.magic.registerShowMessageBox(cb);
+   registerShowMessageBox(taskId, cb) {
+      this.magic.registerShowMessageBox(taskId, cb);
    }
 
 }

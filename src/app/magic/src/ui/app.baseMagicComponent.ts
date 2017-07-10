@@ -19,7 +19,7 @@ export abstract class BaseTaskMagicComponent implements OnInit {
       this._controlProperties = value;
    }
 
- 
+
    private _controlProperties : any;
    //persons: { [id: string]: string; };
    protected props: { [id: string]: { [id: string]: string; } };
@@ -32,23 +32,20 @@ export abstract class BaseTaskMagicComponent implements OnInit {
    get record(){ return this.task.rows[0]; }
 
    //items: FormGroup;
-   taskId: string;
+   get taskId(){ return this.task.taskId; }
 
    constructor(
       protected ref: ChangeDetectorRef,
       protected task: TaskMagicService,
       //protected magic:MagicEngine
 
-   ) {
-      debugger;
-   }
+   ) { debugger; }
 
    ngOnInit() {
-
-       this.taskId = this.task.getTaskId(this.parentId, this.subformName) ;
+       this.task.taskId = this.task.getTaskId(this.parentId, this.subformName) ;
        alert(this.taskId);
-       
-    
+
+
       this.task.registerGetValueCallback((controlKey:string) => {
          console.log('registerGetValueCallback', controlKey);
          return this.record.get(controlKey).value;
@@ -60,13 +57,13 @@ export abstract class BaseTaskMagicComponent implements OnInit {
       this.task.registerRefreshUI(data => {
 
             var obj = JSON.parse(data);
-            console.dir(obj.ControlsValues);
-            console.dir("Properties");
-            console.dir(obj.ControlsProperties);
+           // console.dir(obj.ControlsValues);
+           // console.dir("Properties");
+            //console.dir(obj.ControlsProperties);
 
             this.props = obj.ControlsProperties;
-            console.dir(this.props['idlabel']);
-            console.dir(this.props['idlabel']['19']);
+            //console.dir(this.props['idlabel']);
+           // console.dir(this.props['idlabel']['19']);
 
             this.record.patchValue(obj.ControlsValues);
             this.ref.detectChanges();

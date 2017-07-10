@@ -2,16 +2,27 @@ import {Injectable} from "@angular/core";
 import {MagicEngine} from "./magic.engine";
 import {FormControl, FormGroup} from "@angular/forms";
 
+let counter = 0;
+
 @Injectable()
 export class TaskMagicService {
 
-   taskId      : number;
+   _taskId      : string;
+
+   get taskId(){ return this._taskId; }
+   set taskId(value){
+      debugger;
+      this._taskId = value;
+   }
+
+
    selectedRow : number;
    // row         : FormGroup;
    rows        : FormGroup[] = [];
 
    constructor(protected magic: MagicEngine) {
       this.buildRecords();
+      console.log(`task constructor: ${counter++}`);
    }
 
 
@@ -31,16 +42,16 @@ export class TaskMagicService {
     }
 
 
-   insertEvent(eventName:string, controlIdx:string, lineidx:number){
-      this.magic.insertEvent(eventName, controlIdx, lineidx);
+   insertEvent( eventName:string, controlIdx:string, lineidx:number){
+      this.magic.insertEvent(this.taskId, eventName, controlIdx, lineidx);
    }
 
-   registerGetValueCallback(cb) {
-      this.magic.registerGetValueCallback(cb);
+   registerGetValueCallback( cb) {
+      this.magic.registerGetValueCallback(this.taskId, cb);
    }
 
-   registerRefreshUI(cb) {
-      this.magic.registerRefreshUI(cb);
+   registerRefreshUI( cb) {
+      this.magic.registerRefreshUI(this.taskId, cb);
    }
 
    registerRefreshTableUI(cb) {
@@ -48,7 +59,7 @@ export class TaskMagicService {
    }
 
    registerShowMessageBox(cb) {
-      this.magic.registerShowMessageBox(cb);
+      this.magic.registerShowMessageBox(this.taskId, cb);
    }
 
 }
